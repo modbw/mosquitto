@@ -91,7 +91,7 @@ set_target_properties(libmosquitto PROPERTIES
 target_link_libraries(libmosquitto PRIVATE ${LIBRARIES})
 
 if (WITH_THREADING)
-	if(WIN32)
+	if(WIN32 AND WITH_THREADING_PT4W)
 		 target_link_libraries(libmosquitto PRIVATE PThreads4W::PThreads4W)
 	else()
 		set(THREADS_PREFER_PTHREAD_FLAG ON)
